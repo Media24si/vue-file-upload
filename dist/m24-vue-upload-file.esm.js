@@ -31,7 +31,6 @@
 //
 //
 //
-//
 
 
 var script = {
@@ -67,7 +66,7 @@ var script = {
         this.files.push(uploadedFiles[i]);
       }
 
-      this.$emit('file-uploaded', this.files);
+      this.$emit('files-uploaded', this.files);
     },
     removeFile: function removeFile (key) {
       this.files.splice(key, 1);
@@ -212,7 +211,7 @@ var __vue_render__ = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("div", { staticClass: "file-upload" }, [
+  return _c("div", { staticClass: "m24-vue-upload-file" }, [
     _c("div", [
       _c("label", [
         _c("input", {
@@ -251,20 +250,18 @@ var __vue_render__ = function() {
         _vm._l(_vm.files, function(file, key) {
           return _c("div", { key: key, staticClass: "pl-4" }, [
             _vm._v("\n      " + _vm._s(file.name) + "\n      "),
-            _vm.multiple
-              ? _c(
-                  "span",
-                  {
-                    staticClass: "remove-file",
-                    on: {
-                      click: function($event) {
-                        return _vm.removeFile(key)
-                      }
-                    }
-                  },
-                  [_vm._v("\n        Remove\n      ")]
-                )
-              : _vm._e()
+            _c(
+              "button",
+              {
+                staticClass: "remove-file",
+                on: {
+                  click: function($event) {
+                    return _vm.removeFile(key)
+                  }
+                }
+              },
+              [_vm._v("\n        Remove\n      ")]
+            )
           ])
         })
       ],
@@ -280,11 +277,11 @@ __vue_render__._withStripped = true;
   /* style */
   var __vue_inject_styles__ = function (inject) {
     if (!inject) { return }
-    inject("data-v-787e9cfc_0", { source: "\ninput[data-v-787e9cfc] {\n  display: none;\n}\n", map: {"version":3,"sources":["/home/adam/www/vue-upload-file/src/m24-vue-upload-file.vue"],"names":[],"mappings":";AA+EA;EACA,aAAA;AACA","file":"m24-vue-upload-file.vue","sourcesContent":["<template>\n  <div class=\"file-upload\">\n    <div>\n      <label>\n        <input\n          ref=\"files\"\n          type=\"file\"\n          :multiple=\"multiple\"\n          :accept=\"acceptTypes\"\n          @change=\"handleFileUpload()\">\n      </label>\n    </div>\n    <div class=\"flex justify-start items-center\">\n      <button\n        class=\"btn btn-yellow\"\n        @click=\"addFiles()\">\n        File\n      </button>\n      <div\n        v-for=\"(file, key) in files\"\n        :key=\"key\"\n        class=\"pl-4\">\n        {{ file.name }}\n        <span\n          v-if=\"multiple\"\n          class=\"remove-file\"\n          @click=\"removeFile( key )\">\n          Remove\n        </span>\n      </div>\n    </div>\n    <br>\n  </div>\n</template>\n<script>\n\nexport default {\n  props: {\n    acceptTypes: {\n      type: String,\n      required: false,\n      default: ''\n    },\n    multiple: {\n      type: Boolean,\n      required: false,\n      default: false\n    }\n  },\n  data () {\n    return {\n      files: []\n    }\n  },\n  methods: {\n    addFiles () {\n      this.$refs.files.click()\n    },\n    handleFileUpload () {\n      const uploadedFiles = this.$refs.files.files\n\n      if (!this.multiple) {\n        this.files = []\n      }\n\n      for (var i = 0; i < uploadedFiles.length; i++) {\n        this.files.push(uploadedFiles[i])\n      }\n\n      this.$emit('file-uploaded', this.files)\n    },\n    removeFile (key) {\n      this.files.splice(key, 1)\n      this.$emit('file-removed', this.files)\n    }\n  }\n}\n</script>\n<style scoped>\n  input {\n    display: none;\n  }\n</style>\n"]}, media: undefined });
+    inject("data-v-32c8f0f7_0", { source: "\ninput[data-v-32c8f0f7] {\n  display: none;\n}\n", map: {"version":3,"sources":["/home/adam/www/vue-upload-file/src/m24-vue-upload-file.vue"],"names":[],"mappings":";AA8EA;EACA,aAAA;AACA","file":"m24-vue-upload-file.vue","sourcesContent":["<template>\n  <div class=\"m24-vue-upload-file\">\n    <div>\n      <label>\n        <input\n          ref=\"files\"\n          type=\"file\"\n          :multiple=\"multiple\"\n          :accept=\"acceptTypes\"\n          @change=\"handleFileUpload()\">\n      </label>\n    </div>\n    <div class=\"flex justify-start items-center\">\n      <button\n        class=\"btn btn-yellow\"\n        @click=\"addFiles()\">\n        File\n      </button>\n      <div\n        v-for=\"(file, key) in files\"\n        :key=\"key\"\n        class=\"pl-4\">\n        {{ file.name }}\n        <button\n          class=\"remove-file\"\n          @click=\"removeFile( key )\">\n          Remove\n        </button>\n      </div>\n    </div>\n    <br>\n  </div>\n</template>\n<script>\n\nexport default {\n  props: {\n    acceptTypes: {\n      type: String,\n      required: false,\n      default: ''\n    },\n    multiple: {\n      type: Boolean,\n      required: false,\n      default: false\n    }\n  },\n  data () {\n    return {\n      files: []\n    }\n  },\n  methods: {\n    addFiles () {\n      this.$refs.files.click()\n    },\n    handleFileUpload () {\n      const uploadedFiles = this.$refs.files.files\n\n      if (!this.multiple) {\n        this.files = []\n      }\n\n      for (var i = 0; i < uploadedFiles.length; i++) {\n        this.files.push(uploadedFiles[i])\n      }\n\n      this.$emit('files-uploaded', this.files)\n    },\n    removeFile (key) {\n      this.files.splice(key, 1)\n      this.$emit('file-removed', this.files)\n    }\n  }\n}\n</script>\n<style scoped>\n  input {\n    display: none;\n  }\n</style>\n"]}, media: undefined });
 
   };
   /* scoped */
-  var __vue_scope_id__ = "data-v-787e9cfc";
+  var __vue_scope_id__ = "data-v-32c8f0f7";
   /* module identifier */
   var __vue_module_identifier__ = undefined;
   /* functional template */
