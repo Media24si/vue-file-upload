@@ -1,0 +1,55 @@
+{
+  "name": "m24-vue-upload-file",
+  "version": "1.0.0",
+  "description": "A super simple unstyled file upload component in Vue.js",
+  "jsnext": "dist/bundle.js",
+  "main": "dist/m24-vue-upload-file.common.js",
+  "module": "dist/m24-vue-upload-file.esm.js",
+  "directories": {
+    "src": "src",
+    "dist": "dist"
+  },
+  "scripts": {
+    "purge": "rm -rf dist/",
+    "compile": "rollup -c",
+    "build": "npm run purge && npm run compile",
+    "lint": "eslint src/**/*",
+    "beforePublish": "npm run lint && npm run build"
+  },
+  "files": [
+    "dist/*.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Media24si/vue-file-upload.git"
+  },
+  "homepage": "https://github.com/Media24si/vue-file-upload",
+  "keywords": [
+    "simple",
+    "small",
+    "vue",
+    "component",
+    "file",
+    "upload"
+  ],
+  "author": {
+    "name": "Adam Stradovnik",
+    "email": "adam.stradovnik@gmail.com",
+    "url": "https://github.com/Neoglyph/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.1.2",
+    "rollup": "^1.31.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^5.1.6",
+    "standard": "^14.3.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
