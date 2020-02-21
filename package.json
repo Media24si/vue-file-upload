@@ -39,7 +39,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
     "vue": "latest"
   },
   "devDependencies": {
