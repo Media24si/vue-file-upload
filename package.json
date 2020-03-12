@@ -1,6 +1,6 @@
 {
   "name": "m24-vue-upload-file",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A super simple unstyled file upload component in Vue.js",
   "jsnext": "dist/bundle.js",
   "main": "dist/m24-vue-upload-file.common.js",
