@@ -10,12 +10,12 @@
           @change="handleFileUpload()">
       </label>
     </div>
-    <div class="flex justify-start items-center">
-      <button
-        class="btn btn-yellow"
-        @click="addFiles()">
+    <div class="vuf-button-holder">
+      <button @click="addFiles()">
         File
       </button>
+    </div>
+    <div class="vuf-file-list">
       <div
         v-for="(file, key) in files"
         :key="key"
